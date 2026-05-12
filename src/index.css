@@ -1,1 +1,199 @@
 @import "tailwindcss";
+
+@theme {
+  --color-soil: #1A2E1A;
+  --color-soil-light: #243824;
+  --color-soil-mid: #2E4A2E;
+  --color-gold: #D4A843;
+  --color-gold-light: #E8C070;
+  --color-cream: #F5EDD8;
+  --color-cream-dim: #C8BC9E;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-danger: #E53935;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-tap-highlight-color: transparent; }
+
+body {
+  background-color: #1A2E1A;
+  color: #F5EDD8;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .page-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 1rem 6rem;
+  }
+
+  .card {
+    background-color: #243824;
+    border: 1px solid #2E4A2E;
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .btn-primary {
+    background-color: #D4A843;
+    color: #1A2E1A;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background-color: #E8C070; }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled { background-color: #2E4A2E; color: #4A6A4A; cursor: not-allowed; }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #D4A843;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #D4A843;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-secondary:hover { background-color: rgba(212,168,67,0.1); }
+
+  .btn-danger {
+    background-color: transparent;
+    color: #E53935;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #E53935;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-danger:hover { background-color: rgba(229,57,53,0.1); }
+
+  .form-label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C8BC9E;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-input {
+    width: 100%;
+    background-color: #1A2E1A;
+    border: 1px solid #2E4A2E;
+    border-radius: 8px;
+    color: #F5EDD8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input:focus { border-color: #D4A843; }
+  .form-input::placeholder { color: #4A6A4A; }
+
+  .overline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #D4A843;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #F5EDD8;
+    line-height: 1;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #2E4A2E;
+    margin: 1rem 0;
+  }
+
+  .badge-pending {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background-color: #2E4A2E;
+    color: #4A6A4A;
+  }
+  .badge-due {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(255,152,0,0.2);
+    color: #FF9800;
+  }
+  .badge-done {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(76,175,80,0.2);
+    color: #4CAF50;
+  }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #1A2E1A; }
+::-webkit-scrollbar-thumb { background: #2E4A2E; border-radius: 2px; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
